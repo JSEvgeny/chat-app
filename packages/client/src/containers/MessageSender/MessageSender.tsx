@@ -10,7 +10,7 @@ const Container = styled.div``;
 const MessageSender = () => {
   const [message, setMessage] = useState("");
 
-  const { sendMessage } = useSocket("message");
+  const { sendMessage } = useSocket("message-to-server");
 
   const onMessageSubmitHandler = () => {
     sendMessage(message);

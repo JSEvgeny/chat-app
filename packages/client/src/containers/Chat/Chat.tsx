@@ -30,7 +30,8 @@ const MessageContainer = styled.ul``;
 const Message = styled.li``;
 
 const Chat = () => {
-  const { data } = useSocket("message");
+  const { data } = useSocket("message-to-client");
+  const { data: connectedData } = useSocket("client-connected");
 
   const [messageHistory, setMessageHistory] = useState<string[]>([]);
 
@@ -41,7 +42,7 @@ const Chat = () => {
 
   return (
     <Container>
-      <Sidebar></Sidebar>
+      <Sidebar>{JSON.stringify(connectedData)}</Sidebar>
       <Main>
         <Title>Welcome to the chat</Title>
 

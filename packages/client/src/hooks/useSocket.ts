@@ -16,7 +16,7 @@ const useSocket = (eventName: string) => {
     };
   }, []);
 
-  const sendMessage = (message: string) => socket.emit("message", message);
+  const sendMessage = (message: string) => socket.emit(eventName, message);
 
   return { data, sendMessage };
 };
