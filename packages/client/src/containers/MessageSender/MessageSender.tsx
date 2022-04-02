@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import Button from "../../components/Button/Button";
 import TextAreaInput from "../../components/TextAreaInput/TextAreaInput";
+import { EventTypes } from "../../enums";
 import useKeyPressed from "../../hooks/useKeyPressed";
 import useSocket from "../../hooks/useSocket";
 
@@ -10,7 +11,7 @@ const Container = styled.div``;
 const MessageSender = () => {
   const [message, setMessage] = useState("");
 
-  const { sendMessage } = useSocket("message-to-server");
+  const { sendMessage } = useSocket(EventTypes.MESSAGE_TO_SERVER);
 
   const onMessageSubmitHandler = () => {
     sendMessage(message);

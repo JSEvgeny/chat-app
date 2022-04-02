@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { EventTypes } from "../../enums";
 import useSocket from "../../hooks/useSocket";
 import MessageSender from "../MessageSender/MessageSender";
 
@@ -30,8 +31,8 @@ const MessageContainer = styled.ul``;
 const Message = styled.li``;
 
 const Chat = () => {
-  const { data } = useSocket("message-to-client");
-  const { data: connectedData } = useSocket("client-connected");
+  const { data } = useSocket(EventTypes.MESSAGE_TO_CLIENT);
+  const { data: connectedData } = useSocket(EventTypes.CLIENT_CONNECTED);
 
   const [messageHistory, setMessageHistory] = useState<string[]>([]);
 
