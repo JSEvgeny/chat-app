@@ -1,7 +1,11 @@
 {
   "name": "client",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "Simple chat-app made with NestJS and Websockets",
+  "repository": "git@github.com:JSEvgeny/chat-app.git",
+  "author": "JSEvgeny <linc-sk8@mail.ru>",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
