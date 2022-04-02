@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import MessageSender from "./containers/MessageSender/MessageSender";
 import GlobalStyles from "./globalStyles.styled";
@@ -32,6 +33,13 @@ const Message = styled.li``;
 function App() {
   const { data } = useSocket();
 
+  const [messageHistory, setMessageHistory] = useState<string[]>([]);
+
+  useEffect(() => setMessageHistory((prev) => [...prev, data]), [data]);
+
+  const renderSingleMessage = (message: string) =>
+    message && <Message>{message}</Message>;
+
   return (
     <>
       <GlobalStyles />
@@ -41,7 +49,7 @@ function App() {
           <Title>Welcome to the chat</Title>
 
           <MessageContainer>
-            <Message>{data}</Message>
+            {messageHistory.map(renderSingleMessage)}
           </MessageContainer>
 
           <MessageSender />
