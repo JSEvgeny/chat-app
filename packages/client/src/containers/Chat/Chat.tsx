@@ -7,11 +7,25 @@ import MessageSender from "../MessageSender/MessageSender";
 const Container = styled.div`
   height: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Wrapper = styled.div`
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  gap: 1rem;
+  border: 1px solid lightgray;
+  border-radius: 3px;
 `;
 
 const Sidebar = styled.aside`
   flex: 1;
   max-width: 300px;
+  padding: 1rem;
+  padding-right: 0;
+  background-color: aliceblue;
 `;
 
 const Main = styled.main`
@@ -19,14 +33,33 @@ const Main = styled.main`
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
+  padding: 1rem;
+  padding-left: 0;
 `;
 
 const Title = styled.h1`
-  color: red;
   font-size: 24px;
+  margin: 0;
 `;
 
-const MessageContainer = styled.ul``;
+const ScrollContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: calc(100% - 4rem);
+`;
+
+const MessageContainer = styled.ul`
+  list-style: none;
+  overflow: auto;
+  padding: 0;
+
+  scroll-snap-type: y proximity;
+
+  > li:last-child {
+    scroll-snap-align: end;
+  }
+`;
 
 const Message = styled.li``;
 
@@ -43,16 +76,20 @@ const Chat = () => {
 
   return (
     <Container>
-      <Sidebar>{JSON.stringify(connectedData)}</Sidebar>
-      <Main>
-        <Title>Welcome to the chat</Title>
+      <Wrapper>
+        <Sidebar>{connectedData}</Sidebar>
+        <Main>
+          <Title>Welcome to the chat</Title>
 
-        <MessageContainer>
-          {messageHistory.map(renderSingleMessage)}
-        </MessageContainer>
+          <ScrollContainer>
+            <MessageContainer>
+              {messageHistory.map(renderSingleMessage)}
+            </MessageContainer>
+          </ScrollContainer>
 
-        <MessageSender />
-      </Main>
+          <MessageSender />
+        </Main>
+      </Wrapper>
     </Container>
   );
 };

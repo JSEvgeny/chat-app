@@ -1,12 +1,15 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Button from "../../components/Button/Button";
-import TextAreaInput from "../../components/TextAreaInput/TextAreaInput";
+import TextInput from "../../components/TextInput/TextInput";
 import { EventTypes } from "../../enums";
 import useKeyPressed from "../../hooks/useKeyPressed";
 import useSocket from "../../hooks/useSocket";
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
 
 const MessageSender = () => {
   const [message, setMessage] = useState("");
@@ -22,7 +25,7 @@ const MessageSender = () => {
 
   return (
     <Container>
-      <TextAreaInput value={message} onChange={setMessage} />
+      <TextInput value={message} onChange={setMessage} />
 
       <Button onClick={onMessageSubmitHandler}>Send message</Button>
     </Container>
