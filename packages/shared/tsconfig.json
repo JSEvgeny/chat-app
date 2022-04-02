@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "AMD",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "outFile": "./dist/index.js",
+    "baseUrl": "./",
+    "declaration": true
+  },
+  "include": ["src"]
+}

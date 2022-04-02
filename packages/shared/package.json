@@ -1,0 +1,21 @@
+{
+  "name": "shared",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Shared helpers and constants for simple chat-app",
+  "repository": "git@github.com:JSEvgeny/chat-app.git",
+  "author": "JSEvgeny <linc-sk8@mail.ru>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "tsc"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}
