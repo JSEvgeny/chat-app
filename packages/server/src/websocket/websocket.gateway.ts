@@ -4,12 +4,15 @@ import {
   WebSocketGateway,
   WebSocketServer,
   OnGatewayConnection,
+  OnGatewayDisconnect,
 } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
 import { EventTypes } from 'src/constants';
 
 @WebSocketGateway({ cors: true })
-export class WebsocketGateway implements OnGatewayConnection {
+export class WebsocketGateway
+  implements OnGatewayConnection, OnGatewayDisconnect
+{
   @WebSocketServer()
   private server: Server;
 
@@ -21,5 +24,10 @@ export class WebsocketGateway implements OnGatewayConnection {
   handleConnection(client: Socket): void {
     console.log(client.id);
     this.server.emit(EventTypes.CLIENT_CONNECTED, client.id);
+  }
+
+  handleDisconnect(client: Socket) {
+    console.log(client.id);
+    this.server.emit(EventTypes.CLIENT_DISCONNECTED, client.id);
   }
 }
