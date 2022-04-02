@@ -7,7 +7,7 @@ import {
 
 import { Server } from 'socket.io';
 
-@WebSocketGateway()
+@WebSocketGateway({ cors: true })
 export class WebsocketGateway {
   @WebSocketServer()
   private server: Server;
