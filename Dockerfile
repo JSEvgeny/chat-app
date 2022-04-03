@@ -4,5 +4,5 @@ COPY ./package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 COPY . .
 RUN yarn run build:fullstack
-EXPOSE 3000
+# EXPOSE 3000 Heroku sets its own port, uncomment for local run
 CMD ["yarn", "run", "start:prod"]

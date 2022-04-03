@@ -1,1 +1,1 @@
-export const SOCKET_SERVER_URL = "http://192.168.1.167:3000/";
+export const SOCKET_SERVER_URL = window?.location.origin.replace(/^http/, "ws"); // http://localhost:3000/ for local development
