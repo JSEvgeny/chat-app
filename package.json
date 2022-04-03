@@ -12,7 +12,11 @@
   "scripts": {
     "dev:client": "yarn workspace client run dev",
     "dev:server": "yarn workspace server run start:dev",
-    "fullstack": "concurrently \"yarn dev:server\" \"yarn dev:client\""
+    "dev:fullstack": "concurrently \"yarn dev:server\" \"yarn dev:client\"",
+    "build:client": "yarn workspace client run build",
+    "build:server": "yarn workspace server run build",
+    "build:fullstack": "concurrently \"yarn build:server\" \"yarn build:client\"",
+    "start:prod": "yarn workspace server run start:prod"
   },
   "dependencies": {
     "concurrently": "^7.0.0"
