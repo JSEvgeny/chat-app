@@ -1,0 +1,13 @@
+logs/
+.git
+*.md
+.cache
+.vscode/*
+yarn-debug.log*
+yarn-error.log*
+
+# node_modules
+# dist
+# *.local
+# packages/*/node_modules/
+# packages/*/dist/
