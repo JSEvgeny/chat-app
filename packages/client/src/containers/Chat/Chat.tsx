@@ -9,6 +9,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 `;
 
 const Wrapper = styled.div`
@@ -18,6 +19,11 @@ const Wrapper = styled.div`
   gap: 1rem;
   border: 1px solid lightgray;
   border-radius: 3px;
+
+  @media (max-width: 1024px) {
+    height: 100%;
+    width: 100%;
+  }
 `;
 
 const Sidebar = styled.aside`
@@ -26,6 +32,10 @@ const Sidebar = styled.aside`
   padding: 1rem;
   padding-right: 0;
   background-color: aliceblue;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Main = styled.main`
@@ -35,6 +45,10 @@ const Main = styled.main`
   justify-content: space-between;
   padding: 1rem;
   padding-left: 0;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const Title = styled.h1`
