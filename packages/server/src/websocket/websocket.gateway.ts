@@ -22,12 +22,13 @@ export class WebsocketGateway
   }
 
   handleConnection(client: Socket): void {
-    console.log(client.id);
-    this.server.emit(EventTypes.CLIENT_CONNECTED, client.id);
+    client.broadcast.emit(
+      EventTypes.CLIENT_CONNECTED,
+      'User has joined the chat',
+    );
   }
 
-  handleDisconnect(client: Socket) {
-    console.log(client.id);
-    this.server.emit(EventTypes.CLIENT_DISCONNECTED, client.id);
+  handleDisconnect() {
+    this.server.emit(EventTypes.CLIENT_DISCONNECTED, 'User has left the chat');
   }
 }
